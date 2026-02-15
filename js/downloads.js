@@ -654,7 +654,7 @@ async function bulkDownloadToZipNeutralino(
         // Native Save Dialog via Bridge
         const savePath = await bridge.os.showSaveDialog(`Select save location for ${folderName}.zip`, {
             defaultPath: `${folderName}.zip`,
-            filters: [{ name: 'ZIP Archive', extensions: ['zip'] }]
+            filters: [{ name: 'ZIP Archive', extensions: ['zip'] }],
         });
 
         if (!savePath) {
@@ -1006,12 +1006,12 @@ function createBulkDownloadNotification(type, name, _totalItems) {
         type === 'album'
             ? 'Album'
             : type === 'playlist'
-                ? 'Playlist'
-                : type === 'liked'
-                    ? 'Liked Tracks'
-                    : type === 'queue'
-                        ? 'Queue'
-                        : 'Discography';
+              ? 'Playlist'
+              : type === 'liked'
+                ? 'Liked Tracks'
+                : type === 'queue'
+                  ? 'Queue'
+                  : 'Discography';
 
     notifEl.innerHTML = `
         <div style="display: flex; align-items: start; gap: 0.75rem;">

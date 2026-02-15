@@ -114,12 +114,13 @@ export class AuthManager {
 
                 // Setup one-time listener for the success event
                 const authHandler = async (detail) => {
-                    // We received a raw ID token (Google ID Token) or similar? 
-                    // The bridge sends { uid, email, accessToken }. 
+                    // We received a raw ID token (Google ID Token) or similar?
+                    // The bridge sends { uid, email, accessToken }.
                     // We need to create a credential from it.
 
                     try {
-                        const { GoogleAuthProvider, signInWithCredential } = await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js');
+                        const { GoogleAuthProvider, signInWithCredential } =
+                            await import('https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js');
                         // Create credential using Google's tokens passed from the bridge
                         const credential = GoogleAuthProvider.credential(detail.idToken, detail.accessToken);
 
@@ -143,7 +144,6 @@ export class AuthManager {
                 };
 
                 window.Neutralino.events.on('externalAuthSuccess', authHandler);
-
             } catch (e) {
                 console.error('[Auth] Failed to open external browser:', e);
                 alert('Failed to launch external browser.');

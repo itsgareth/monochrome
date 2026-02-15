@@ -117,7 +117,7 @@ export const filesystem = {
             // Transfer buffer if possible to save memory
             window.parent.postMessage({ type: 'NL_FS_APPEND_BINARY', id, path, buffer }, '*', [buffer]);
         });
-    }
+    },
 };
 
 export const _window = {
